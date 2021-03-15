@@ -8,6 +8,7 @@ theme:
     - navigation.expand
     - navigation.top
 repo_url: https://github.com/DylanGore-FYP/Documentation
+edit_uri: edit/main/docs/
 plugins:
   - search
   # - search.suggest
