@@ -1,0 +1,22 @@
+site_name: DylanGore-FYP
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.expand
+    - navigation.top
+repo_url: https://github.com/DylanGore-FYP/Documentation
+plugins:
+  - search
+  # - search.suggest
+  # - search.highlight
+  # - search.share
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/DylanGore-FYP
+nav:
+  - Home:
+      - index.md
