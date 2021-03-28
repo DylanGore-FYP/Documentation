@@ -16,9 +16,9 @@
 
 ### Install the Operating System
 
-Flash an SD Card with the latest version of Raspberry Pi OS. The recommended way to do this is to use the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) but something like [balenaEtcher](https://www.balena.io/etcher/) can be used if preferrrd.
+Flash an SD Card with the latest version of Raspberry Pi OS. The recommended way to do this is to use the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) but something like [balenaEtcher](https://www.balena.io/etcher/) can be used if preferred.
 
-This guide assums that that standard version of Raspberry Pi OS is being used (the one with the desktop environment) but feel free to use Raspberry Pi OS Lite if no display is needed.
+This guide assumes that that standard version of Raspberry Pi OS is being used (the one with the desktop environment) but feel free to use Raspberry Pi OS Lite if no display is needed.
 
 ### Configure Headless Operation
 
@@ -28,7 +28,7 @@ Plug the SD card into the computer and open the boot partition.
 
 Add a file called `ssh` (with no file extension) to enable the SSH server.
 
-Add a file called `wpa_supplicant.conf` to pre-configure your Wi-Fi network(s). Below is a sample file that has two networks with a different priority, if only one network is needed, remove the second network block. Dopne forget to update the country with the [ISO 3166-1 two letter country code](https://en.wikipedia.org/wiki/ISO_3166-1) for your location.
+Add a file called `wpa_supplicant.conf` to pre-configure your Wi-Fi network(s). Below is a sample file that has two networks with a different priority, if only one network is needed, remove the second network block. Don't forget to update the country with the [ISO 3166-1 two letter country code](https://en.wikipedia.org/wiki/ISO_3166-1) for your location.
 
 ```json
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -87,7 +87,7 @@ sudo reboot now
 
 <!-- prettier-ignore -->
 !!! info
-    This is a temporary solution, the final insturctions will have an easier installation method.
+    This is a temporary solution, the final instructions will have an easier installation method.
 
 Clone the code from GitHub using git:
 
@@ -123,7 +123,7 @@ This will install all of the required dependencies in a virtual environment. To 
 pipenv shell
 ```
 
-**Note:** All instructions after this point assume you are runing within the virtual environment unless stated otherwise
+**Note:** All instructions after this point assume you are running within the virtual environment unless stated otherwise
 
 ### Configuration
 
