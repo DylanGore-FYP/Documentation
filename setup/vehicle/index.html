@@ -592,13 +592,13 @@
 </ul>
 <h2 id="preparing-the-raspberry-pi">Preparing the Raspberry Pi</h2>
 <h3 id="install-the-operating-system">Install the Operating System</h3>
-<p>Flash an SD Card with the latest version of Raspberry Pi OS. The recommended way to do this is to use the <a href="https://www.raspberrypi.org/software/">Raspberry Pi Imager</a> but something like <a href="https://www.balena.io/etcher/">balenaEtcher</a> can be used if preferrrd.</p>
-<p>This guide assums that that standard version of Raspberry Pi OS is being used (the one with the desktop environment) but feel free to use Raspberry Pi OS Lite if no display is needed.</p>
+<p>Flash an SD Card with the latest version of Raspberry Pi OS. The recommended way to do this is to use the <a href="https://www.raspberrypi.org/software/">Raspberry Pi Imager</a> but something like <a href="https://www.balena.io/etcher/">balenaEtcher</a> can be used if preferred.</p>
+<p>This guide assumes that that standard version of Raspberry Pi OS is being used (the one with the desktop environment) but feel free to use Raspberry Pi OS Lite if no display is needed.</p>
 <h3 id="configure-headless-operation">Configure Headless Operation</h3>
 <p><em>This step is optional if using a display but makes things a bit easier to configure later.</em></p>
 <p>Plug the SD card into the computer and open the boot partition.</p>
 <p>Add a file called <code>ssh</code> (with no file extension) to enable the SSH server.</p>
-<p>Add a file called <code>wpa_supplicant.conf</code> to pre-configure your Wi-Fi network(s). Below is a sample file that has two networks with a different priority, if only one network is needed, remove the second network block. Dopne forget to update the country with the <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1 two letter country code</a> for your location.</p>
+<p>Add a file called <code>wpa_supplicant.conf</code> to pre-configure your Wi-Fi network(s). Below is a sample file that has two networks with a different priority, if only one network is needed, remove the second network block. Don't forget to update the country with the <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1 two letter country code</a> for your location.</p>
 <div class="highlight"><pre><span></span><code><span class="err">c</span><span class="kc">trl</span><span class="err">_i</span><span class="kc">nterfa</span><span class="err">ce=DIR=/var/ru</span><span class="kc">n</span><span class="err">/wpa_supplica</span><span class="kc">nt</span> <span class="err">GROUP=</span><span class="kc">net</span><span class="err">dev</span>
 <span class="err">upda</span><span class="kc">te</span><span class="err">_co</span><span class="kc">nf</span><span class="err">ig=</span><span class="mi">1</span>
 <span class="err">cou</span><span class="kc">ntr</span><span class="err">y=IE</span>
@@ -637,7 +637,7 @@ sudo apt upgrade
 <!-- prettier-ignore -->
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>This is a temporary solution, the final insturctions will have an easier installation method.</p>
+<p>This is a temporary solution, the final instructions will have an easier installation method.</p>
 </div>
 <p>Clone the code from GitHub using git:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/DylanGore-FYP/Car.git
@@ -656,7 +656,7 @@ sudo apt upgrade
 <p>This will install all of the required dependencies in a virtual environment. To access the virtual environment, run:</p>
 <div class="highlight"><pre><span></span><code>pipenv shell
 </code></pre></div>
-<p><strong>Note:</strong> All instructions after this point assume you are runing within the virtual environment unless stated otherwise</p>
+<p><strong>Note:</strong> All instructions after this point assume you are running within the virtual environment unless stated otherwise</p>
 <h3 id="configuration">Configuration</h3>
 <p>All configuration is done within a <code>config.toml</code> file. A sample file comes with the repo. Copy it and rename it to use it as a starting point.</p>
 <div class="highlight"><pre><span></span><code>cp config.sample.toml config.toml
