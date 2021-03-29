@@ -26,5 +26,6 @@ nav:
       - 'Home': index.md
       - Setup:
           - setup/vehicle.md
-          - setup/cloud.md
+          - Cloud:
+              - 'Single Server Setup': setup/cloud-single-server.md
   - About: about/index.md
