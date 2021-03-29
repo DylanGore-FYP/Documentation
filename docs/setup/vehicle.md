@@ -58,6 +58,16 @@ Coming soon!
 
 ### Basic Raspberry Pi Setup
 
+SSH into the Raspberry Pi. Depending on your network it may be accessible over the `raspberrrypi.local` hostname. If not, check the DHCP leases on the router for the IP address or scan the network using a scanning tool such as [nmap](https://nmap.org/).
+
+```bash
+ssh pi@raspberrypi.local
+```
+
+<!-- prettier-ignore -->
+!!! info "Default Password"
+    The default password for the `pi` user in Raspberry Pi OS is `raspberry`.
+
 Update the default password:
 
 ```bash
