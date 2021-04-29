@@ -45,13 +45,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -95,6 +99,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -373,6 +399,60 @@
     Ansible Setup
   </a>
   
+    <nav class="md-nav" aria-label="Ansible Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-playbook-from-github" class="md-nav__link">
+    Download the Playbook from GitHub
+  </a>
+  
+    <nav class="md-nav" aria-label="Download the Playbook from GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-repository" class="md-nav__link">
+    Clone the Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-download" class="md-nav__link">
+    Direct Download
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-firebase-admin-credentials-file" class="md-nav__link">
+    Add the Firebase Admin Credentials File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-configuration" class="md-nav__link">
+    Variable Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-playbook" class="md-nav__link">
+    Running the Playbook
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -526,6 +606,60 @@
     Ansible Setup
   </a>
   
+    <nav class="md-nav" aria-label="Ansible Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-playbook-from-github" class="md-nav__link">
+    Download the Playbook from GitHub
+  </a>
+  
+    <nav class="md-nav" aria-label="Download the Playbook from GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-repository" class="md-nav__link">
+    Clone the Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-download" class="md-nav__link">
+    Direct Download
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-firebase-admin-credentials-file" class="md-nav__link">
+    Add the Firebase Admin Credentials File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-configuration" class="md-nav__link">
+    Variable Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-playbook" class="md-nav__link">
+    Running the Playbook
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -590,7 +724,25 @@
 <li>1 Virtual Machine/Bare-metal server</li>
 </ul>
 <h2 id="ansible-setup">Ansible Setup</h2>
-<p>Coming soon!</p>
+<h3 id="download-the-playbook-from-github">Download the Playbook from GitHub</h3>
+<p>This can either be done by cloning the Git repository or downloading it as a zip file.</p>
+<h4 id="clone-the-repository">Clone the Repository</h4>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/DylanGore-FYP/ansible-playbook-docker-compose-deploy.git
+</code></pre></div>
+<h4 id="direct-download">Direct Download</h4>
+<div class="highlight"><pre><span></span><code>wget https://github.com/DylanGore-FYP/ansible-playbook-docker-compose-deploy/archive/refs/heads/main.zip
+</code></pre></div>
+<p>Unzip the file:</p>
+<div class="highlight"><pre><span></span><code>unzip main.zip
+</code></pre></div>
+<h3 id="add-the-firebase-admin-credentials-file">Add the Firebase Admin Credentials File</h3>
+<p>If you have already setup Firebase, you should have a <code>serviceAccountKey.json</code> file if not, you should setup Firebase before continuing.</p>
+<p><a class="md-button md-button--primary" href="/setup/external-firebase-authentication">Setup Firebase <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 18.69-7.3 4.05c-.5.26-1 .26-1.5 0L4 18.69 17.05 5.54l.35-.1c.3 0 .47.13.5.4L20 18.69M9.35 5.74 4.8 13.29 6.7 1.34c.03-.27.2-.4.5-.4.2 0 .33.06.4.25l2.15 3.95-.4.6M13.85 7 4.3 16.59l7.25-12.3c.1-.2.25-.29.45-.29s.33.09.4.29L13.85 7z"/></svg></span></a></p>
+<p>Once you have a <code>serviceAccountKey.json</code> file, place it in the Playbook <code>templates/</code> directory.</p>
+<h3 id="variable-configuration">Variable Configuration</h3>
+<p>Coming Soon!</p>
+<h3 id="running-the-playbook">Running the Playbook</h3>
+<p>Coming Soon!</p>
 <h2 id="manual-setup">Manual Setup</h2>
 <!-- prettier-ignore -->
 <div class="admonition info">
