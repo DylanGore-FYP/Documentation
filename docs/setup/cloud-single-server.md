@@ -10,7 +10,43 @@
 
 ## Ansible Setup
 
-Coming soon!
+### Download the Playbook from GitHub
+
+This can either be done by cloning the Git repository or downloading it as a zip file.
+
+#### Clone the Repository
+
+```bash
+git clone https://github.com/DylanGore-FYP/ansible-playbook-docker-compose-deploy.git
+```
+
+#### Direct Download
+
+```bash
+wget https://github.com/DylanGore-FYP/ansible-playbook-docker-compose-deploy/archive/refs/heads/main.zip
+```
+
+Unzip the file:
+
+```bash
+unzip main.zip
+```
+
+### Add the Firebase Admin Credentials File
+
+If you have already setup Firebase, you should have a `serviceAccountKey.json` file if not, you should setup Firebase before continuing.
+
+[Setup Firebase :material-firebase:](/setup/external-firebase-authentication){ .md-button .md-button--primary }
+
+Once you have a `serviceAccountKey.json` file, place it in the Playbook `templates/` directory.
+
+### Variable Configuration
+
+Coming Soon!
+
+### Running the Playbook
+
+Coming Soon!
 
 ## Manual Setup
 
