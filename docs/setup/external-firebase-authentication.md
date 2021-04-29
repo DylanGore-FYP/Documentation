@@ -91,4 +91,4 @@ The Firebase documentation contains setup instructions for each provider.
 
 ## Authorized Domains
 
-As a security measure, Firebase only allows login using third-party providers (everything excluding email/password in this case) from a list of authorized domains. Make sure to add the domain/IP address that the Vehicle Dashboard will be accessible at to this list. It is found below the list of sign-in providers.
+As a security measure, Firebase only allows login using third-party providers (everything excluding email/password in this case) from a list of authorized domains. Make sure to add the domain/IP address that the Vehicle Dashboard will be accessible at is added to this list. It is found below the list of sign-in providers.
