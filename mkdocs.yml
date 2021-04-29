@@ -17,6 +17,7 @@ plugins:
 markdown_extensions:
   - admonition
   - pymdownx.superfences
+  - attr_list
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -28,4 +29,6 @@ nav:
           - setup/vehicle.md
           - Cloud:
               - 'Single Server Setup': setup/cloud-single-server.md
+          - External:
+              - 'Firebase Authentication': setup/external-firebase-authentication.md
   - About: about/index.md
