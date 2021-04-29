@@ -7,6 +7,17 @@ theme:
     - navigation.tabs
     - navigation.expand
     - navigation.top
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 repo_url: https://github.com/DylanGore-FYP/Documentation
 edit_uri: edit/main/docs/
 plugins:
