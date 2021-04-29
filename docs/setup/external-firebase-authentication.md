@@ -12,11 +12,11 @@ Firebase can be a paid subscription service but in the case of this system, all 
 
 To begin, you will need to log in to the [Firebase Console](https://console.firebase.google.com/) with a Google Account. Once here you need to create a new project, as shown.
 
-![New project page](/img/firebase/create-project-page.png){ loading=lazy }
+![New project page](img/firebase/create-project-page.png){ loading=lazy }
 
 Once your project has been created, you will be redirected to the dashboard.
 
-![Firebase Dashboard](/img/firebase/dashboard-new.png){ loading=lazy}
+![Firebase Dashboard](img/firebase/dashboard-new.png){ loading=lazy}
 
 ## Adding an App
 
@@ -24,7 +24,7 @@ You now need to create an app, this will generate a set of credentials that the 
 
 You will then be asked to give the app a name.
 
-![Register a new Firebase app](/img/firebase/register-app.png){ loading=lazy }
+![Register a new Firebase app](img/firebase/register-app.png){ loading=lazy }
 
 <!-- prettier-ignore -->
 !!! info
@@ -32,7 +32,7 @@ You will then be asked to give the app a name.
 
 Once the app has been registered, the Firebase config for the app will be displayed. Take note of these values as they are required to run the Vehicle Dashboard.
 
-![Firebase app credentials](/img/firebase/app-credentials.png){ loading=lazy }
+![Firebase app credentials](img/firebase/app-credentials.png){ loading=lazy }
 
 <!-- prettier-ignore -->
 !!! warning
@@ -42,7 +42,7 @@ Once the app has been registered, the Firebase config for the app will be displa
 
 The API uses the Firebase Admin SDK to interface with Firebase to validate user tokens. It uses a service account to do this. To access the credentials for the service account, go to your _Project Settings_ (Gear icon on the top left of the Firebase Dashboard) and _Service Accounts_.
 
-![Service accounts page](/img/firebase/service-accounts.png){ loading=lazy }
+![Service accounts page](img/firebase/service-accounts.png){ loading=lazy }
 
 From here, you have the option to _Generate a new private key_, click the button and you will be prompted to download a file, name it `serviceAccountKey.json` and save it for later use.
 
@@ -56,7 +56,7 @@ Firebase (and by extension the Vehicle Dashboard) supports multiple login provid
 
 To enable authentication, go to the Authentication section of the Firebase Dashboard via the link in the sidebar. Once here, follow the on-screen instructions to complete the initial setup.
 
-![Authentication initial setup](/img/firebase/authentication-initial.png)
+![Authentication initial setup](img/firebase/authentication-initial.png)
 
 After that, authentication providers can be enabled/disabled as needed via the _Sign-in method_ tab.
 

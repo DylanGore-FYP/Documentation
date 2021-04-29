@@ -18,6 +18,7 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
+site_url: https://dylangore-fyp.github.io/Documentation/
 repo_url: https://github.com/DylanGore-FYP/Documentation
 edit_uri: edit/main/docs/
 plugins:

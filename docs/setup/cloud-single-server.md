@@ -36,7 +36,7 @@ unzip main.zip
 
 If you have already setup Firebase, you should have a `serviceAccountKey.json` file if not, you should setup Firebase before continuing.
 
-[Setup Firebase :material-firebase:](/setup/external-firebase-authentication){ .md-button .md-button--primary }
+[Setup Firebase :material-firebase:](setup/external-firebase-authentication){ .md-button .md-button--primary }
 
 Once you have a `serviceAccountKey.json` file, place it in the Playbook `templates/` directory.
 
