@@ -20,6 +20,10 @@ Flash an SD Card with the latest version of Raspberry Pi OS. The recommended way
 
 This guide assumes that that standard version of Raspberry Pi OS is being used (the one with the desktop environment) but feel free to use Raspberry Pi OS Lite if no display is needed.
 
+<!-- prettier-ignore -->
+!!! info "Other Operating Systems"
+    While this guide assumes the use of Raspberry Pi OS, the instructions should be very similar for other operating systems that can run on a Raspberry Pi such as Ubuntu.
+
 ### Configure Headless Operation
 
 _This step is optional if using a display but makes things a bit easier to configure later._
@@ -50,13 +54,9 @@ network={
 
 See [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md) on headless setup from the Raspberry Pi website for more information.
 
-## Ansible Setup
+If you are running Ubuntu as your operating system of choice, please follow the [official setup guide](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet) as the headless setup is different when using Ubuntu.
 
-Coming soon!
-
-## Manual Setup
-
-### Basic Raspberry Pi Setup
+## Basic Raspberry Pi Setup
 
 SSH into the Raspberry Pi. Depending on your network it may be accessible over the `raspberrrypi.local` hostname. If not, check the DHCP leases on the router for the IP address or scan the network using a scanning tool such as [nmap](https://nmap.org/).
 
@@ -93,6 +93,90 @@ You may need to reboot at this point.
 sudo reboot now
 ```
 
+## Ansible Setup
+
+### Ansible Requirements
+
+- [Ansible](https://www.ansible.com/)
+- [Python 3](https://python.org)
+- [Git](https://git-scm.com/)
+
+### Download the Playbook
+
+To start, clone the playbook from GitHub:
+
+```bash
+git clone https://github.com/DylanGore-FYP/ansible-playbook-vehicle-setup.git
+```
+
+and change into that directory:
+
+```bash
+cd ansible-playbook-vehicle-setup
+```
+
+### Update configuration files
+
+The playbook requires that a `config.toml` file is place in the `templates` directory. An example of this file can be found below or in the [DylanGore-FYP/Car](https://github.com/DylanGore-FYP/Car/blob/main/config.sample.toml) repository.
+
+```toml
+[obd]
+enabled = true
+# How often to poll in seconds
+poll_interval = 60
+
+[gps]
+enabled = false
+
+[vehicle]
+friendly_name = ''
+manufacturer = ''
+model = ''
+driver = ''
+
+[plugins.output.mqtt]
+enabled = true
+host = '127.0.0.1'
+port = 1883
+username = ''
+password = ''
+ssl = false
+retain = false
+pub_qos = 0
+sub_qos = 0
+base_topic = 'vehicles/vehicle_id'
+```
+
+Next, copy the `vars/vars.sample.yml` file to `vars/vars.yml` and edit the values accordingly.
+
+```bash
+cp vars/vars.sample.yml vars/vars.yml
+```
+
+## Running the playbook
+
+Before running the playbook itself, you must download the required roles. This can be done by running:
+
+```bash
+ansible-galaxy install -r requirements.yml -p roles --force
+```
+
+To run the playbook, run one of the following commands depending on how authentication is configured. If in doubt, run the password authentication command.
+
+Run the playbook using SSH Key authentication:
+
+```bash
+ansible-playbook -i inventory playbook.yml
+```
+
+Run the playbook using password authentication:
+
+```bash
+ansible-playbook -i inventory playbook.yml --ask-pass
+```
+
+## Manual Setup
+
 ### Download the Code
 
 <!-- prettier-ignore -->
@@ -107,7 +191,7 @@ git clone https://github.com/DylanGore-FYP/Car.git
 
 Or, download and extract [this](https://github.com/DylanGore-FYP/Car/archive/refs/heads/main.zip) zip file.
 
-### Install `pipenv`
+<!-- ### Install `pipenv`
 
 This project uses `pipenv` to manage dependencies. To install it, run:
 
@@ -133,7 +217,7 @@ This will install all of the required dependencies in a virtual environment. To 
 pipenv shell
 ```
 
-**Note:** All instructions after this point assume you are running within the virtual environment unless stated otherwise
+**Note:** All instructions after this point assume you are running within the virtual environment unless stated otherwise -->
 
 ### Configuration
 
