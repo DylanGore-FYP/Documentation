@@ -1,9 +1,5 @@
 # Vehicle
 
-<!-- prettier-ignore -->
-!!! warning
-    This section of the documentation is incomplete! Results may vary.
-
 ## Requirements
 
 - Raspberry Pi
@@ -179,10 +175,6 @@ ansible-playbook -i inventory playbook.yml --ask-pass
 
 ### Download the Code
 
-<!-- prettier-ignore -->
-!!! info
-    This is a temporary solution, the final instructions will have an easier installation method.
-
 Clone the code from GitHub using git:
 
 ```bash
@@ -190,6 +182,12 @@ git clone https://github.com/DylanGore-FYP/Car.git
 ```
 
 Or, download and extract [this](https://github.com/DylanGore-FYP/Car/archive/refs/heads/main.zip) zip file.
+
+### Install the dependencies
+
+```bash
+sudo pip3 install obd paho-mqtt toml gps eel
+```
 
 <!-- ### Install `pipenv`
 
@@ -226,3 +224,51 @@ All configuration is done within a `config.toml` file. A sample file comes with 
 ```bash
 cp config.sample.toml config.toml
 ```
+
+### Running the Code
+
+From the location you downloaded the code to, run:
+
+```bash
+python3 -m car
+```
+
+### Optional Steps
+
+#### Disable the Cursor
+
+If you want to hide the cursor, first, install `unclutter`
+
+```bash
+sudo apt install unclutter
+```
+
+Add `unclutter` to the LXDE `autostart` file so it runs on login:
+
+```bash
+sudo nano /etc/xdg/libfm/libfm.conf
+```
+
+and add the following line to the end:
+
+```bash
+@unclutter -idle 0
+```
+
+#### Enable single click
+
+As a quality of life improvement when using a touchscreen, you may want to enable single click, meaning that desktop shortcuts only require a single click/tap to open rather than a double click/tap.
+
+Edit `/etc/xdg/libfm/libfm.conf`:
+
+```bash
+sudo nano /etc/xdg/libfm/libfm.conf
+```
+
+Where it says:
+
+```bash
+single-click=0
+```
+
+Replace the `0` with a `1`.
