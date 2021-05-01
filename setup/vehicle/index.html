@@ -389,8 +389,49 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#basic-raspberry-pi-setup" class="md-nav__link">
+    Basic Raspberry Pi Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-setup" class="md-nav__link">
     Ansible Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ansible-requirements" class="md-nav__link">
+    Ansible Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-the-playbook" class="md-nav__link">
+    Download the Playbook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-configuration-files" class="md-nav__link">
+    Update configuration files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-playbook" class="md-nav__link">
+    Running the playbook
   </a>
   
 </li>
@@ -404,22 +445,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-raspberry-pi-setup" class="md-nav__link">
-    Basic Raspberry Pi Setup
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#download-the-code" class="md-nav__link">
     Download the Code
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-pipenv" class="md-nav__link">
-    Install pipenv
   </a>
   
 </li>
@@ -609,8 +636,49 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#basic-raspberry-pi-setup" class="md-nav__link">
+    Basic Raspberry Pi Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-setup" class="md-nav__link">
     Ansible Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ansible-requirements" class="md-nav__link">
+    Ansible Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-the-playbook" class="md-nav__link">
+    Download the Playbook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-configuration-files" class="md-nav__link">
+    Update configuration files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-playbook" class="md-nav__link">
+    Running the playbook
   </a>
   
 </li>
@@ -624,22 +692,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-raspberry-pi-setup" class="md-nav__link">
-    Basic Raspberry Pi Setup
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#download-the-code" class="md-nav__link">
     Download the Code
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-pipenv" class="md-nav__link">
-    Install pipenv
   </a>
   
 </li>
@@ -691,6 +745,11 @@
 <h3 id="install-the-operating-system">Install the Operating System</h3>
 <p>Flash an SD Card with the latest version of Raspberry Pi OS. The recommended way to do this is to use the <a href="https://www.raspberrypi.org/software/">Raspberry Pi Imager</a> but something like <a href="https://www.balena.io/etcher/">balenaEtcher</a> can be used if preferred.</p>
 <p>This guide assumes that that standard version of Raspberry Pi OS is being used (the one with the desktop environment) but feel free to use Raspberry Pi OS Lite if no display is needed.</p>
+<!-- prettier-ignore -->
+<div class="admonition info">
+<p class="admonition-title">Other Operating Systems</p>
+<p>While this guide assumes the use of Raspberry Pi OS, the instructions should be very similar for other operating systems that can run on a Raspberry Pi such as Ubuntu.</p>
+</div>
 <h3 id="configure-headless-operation">Configure Headless Operation</h3>
 <p><em>This step is optional if using a display but makes things a bit easier to configure later.</em></p>
 <p>Plug the SD card into the computer and open the boot partition.</p>
@@ -713,10 +772,8 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>See <a href="https://www.raspberrypi.org/documentation/configuration/wireless/headless.md">this guide</a> on headless setup from the Raspberry Pi website for more information.</p>
-<h2 id="ansible-setup">Ansible Setup</h2>
-<p>Coming soon!</p>
-<h2 id="manual-setup">Manual Setup</h2>
-<h3 id="basic-raspberry-pi-setup">Basic Raspberry Pi Setup</h3>
+<p>If you are running Ubuntu as your operating system of choice, please follow the <a href="https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet">official setup guide</a> as the headless setup is different when using Ubuntu.</p>
+<h2 id="basic-raspberry-pi-setup">Basic Raspberry Pi Setup</h2>
 <p>SSH into the Raspberry Pi. Depending on your network it may be accessible over the <code>raspberrrypi.local</code> hostname. If not, check the DHCP leases on the router for the IP address or scan the network using a scanning tool such as <a href="https://nmap.org/">nmap</a>.</p>
 <div class="highlight"><pre><span></span><code>ssh pi@raspberrypi.local
 </code></pre></div>
@@ -738,6 +795,63 @@ sudo apt upgrade
 <p>You may need to reboot at this point.</p>
 <div class="highlight"><pre><span></span><code>sudo reboot now
 </code></pre></div>
+<h2 id="ansible-setup">Ansible Setup</h2>
+<h3 id="ansible-requirements">Ansible Requirements</h3>
+<ul>
+<li><a href="https://www.ansible.com/">Ansible</a></li>
+<li><a href="https://python.org">Python 3</a></li>
+<li><a href="https://git-scm.com/">Git</a></li>
+</ul>
+<h3 id="download-the-playbook">Download the Playbook</h3>
+<p>To start, clone the playbook from GitHub:</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/DylanGore-FYP/ansible-playbook-vehicle-setup.git
+</code></pre></div>
+<p>and change into that directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ansible-playbook-vehicle-setup
+</code></pre></div>
+<h3 id="update-configuration-files">Update configuration files</h3>
+<p>The playbook requires that a <code>config.toml</code> file is place in the <code>templates</code> directory. An example of this file can be found below or in the <a href="https://github.com/DylanGore-FYP/Car/blob/main/config.sample.toml">DylanGore-FYP/Car</a> repository.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[obd]</span>
+<span class="n">enabled</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="c1"># How often to poll in seconds</span>
+<span class="n">poll_interval</span> <span class="o">=</span> <span class="mi">60</span>
+
+<span class="k">[gps]</span>
+<span class="n">enabled</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="k">[vehicle]</span>
+<span class="n">friendly_name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="n">manufacturer</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+
+<span class="k">[plugins.output.mqtt]</span>
+<span class="n">enabled</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">1883</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="n">ssl</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">retain</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">pub_qos</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sub_qos</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">base_topic</span> <span class="o">=</span> <span class="s">&#39;vehicles/vehicle_id&#39;</span>
+</code></pre></div>
+<p>Next, copy the <code>vars/vars.sample.yml</code> file to <code>vars/vars.yml</code> and edit the values accordingly.</p>
+<div class="highlight"><pre><span></span><code>cp vars/vars.sample.yml vars/vars.yml
+</code></pre></div>
+<h2 id="running-the-playbook">Running the playbook</h2>
+<p>Before running the playbook itself, you must download the required roles. This can be done by running:</p>
+<div class="highlight"><pre><span></span><code>ansible-galaxy install -r requirements.yml -p roles --force
+</code></pre></div>
+<p>To run the playbook, run one of the following commands depending on how authentication is configured. If in doubt, run the password authentication command.</p>
+<p>Run the playbook using SSH Key authentication:</p>
+<div class="highlight"><pre><span></span><code>ansible-playbook -i inventory playbook.yml
+</code></pre></div>
+<p>Run the playbook using password authentication:</p>
+<div class="highlight"><pre><span></span><code>ansible-playbook -i inventory playbook.yml --ask-pass
+</code></pre></div>
+<h2 id="manual-setup">Manual Setup</h2>
 <h3 id="download-the-code">Download the Code</h3>
 <!-- prettier-ignore -->
 <div class="admonition info">
@@ -748,20 +862,30 @@ sudo apt upgrade
 <div class="highlight"><pre><span></span><code>git clone https://github.com/DylanGore-FYP/Car.git
 </code></pre></div>
 <p>Or, download and extract <a href="https://github.com/DylanGore-FYP/Car/archive/refs/heads/main.zip">this</a> zip file.</p>
-<h3 id="install-pipenv">Install <code>pipenv</code></h3>
-<p>This project uses <code>pipenv</code> to manage dependencies. To install it, run:</p>
+<!-- ### Install `pipenv`
+
+This project uses `pipenv` to manage dependencies. To install it, run:
+
 <div class="highlight"><pre><span></span><code>pip3 install pipenv
 </code></pre></div>
-<p>On Debian-based systems, <code>pipenv</code> can also be installed using <code>apt</code>:</p>
+
+On Debian-based systems, `pipenv` can also be installed using `apt`:
+
 <div class="highlight"><pre><span></span><code>apt install pipenv
 </code></pre></div>
-<p>Once <code>pipenv</code> is installed, <code>cd</code> into the downloaded code and run:</p>
+
+Once `pipenv` is installed, `cd` into the downloaded code and run:
+
 <div class="highlight"><pre><span></span><code>pipenv install
 </code></pre></div>
-<p>This will install all of the required dependencies in a virtual environment. To access the virtual environment, run:</p>
+
+This will install all of the required dependencies in a virtual environment. To access the virtual environment, run:
+
 <div class="highlight"><pre><span></span><code>pipenv shell
 </code></pre></div>
-<p><strong>Note:</strong> All instructions after this point assume you are running within the virtual environment unless stated otherwise</p>
+
+**Note:** All instructions after this point assume you are running within the virtual environment unless stated otherwise -->
+
 <h3 id="configuration">Configuration</h3>
 <p>All configuration is done within a <code>config.toml</code> file. A sample file comes with the repo. Copy it and rename it to use it as a starting point.</p>
 <div class="highlight"><pre><span></span><code>cp config.sample.toml config.toml
