@@ -452,9 +452,50 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#install-the-dependencies" class="md-nav__link">
+    Install the dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-code" class="md-nav__link">
+    Running the Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-steps" class="md-nav__link">
+    Optional Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-the-cursor" class="md-nav__link">
+    Disable the Cursor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-single-click" class="md-nav__link">
+    Enable single click
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -699,9 +740,50 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#install-the-dependencies" class="md-nav__link">
+    Install the dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-code" class="md-nav__link">
+    Running the Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-steps" class="md-nav__link">
+    Optional Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-the-cursor" class="md-nav__link">
+    Disable the Cursor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-single-click" class="md-nav__link">
+    Enable single click
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -728,11 +810,6 @@
                 
                 
                 <h1 id="vehicle">Vehicle</h1>
-<!-- prettier-ignore -->
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This section of the documentation is incomplete! Results may vary.</p>
-</div>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>Raspberry Pi</li>
@@ -853,15 +930,13 @@ sudo apt upgrade
 </code></pre></div>
 <h2 id="manual-setup">Manual Setup</h2>
 <h3 id="download-the-code">Download the Code</h3>
-<!-- prettier-ignore -->
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>This is a temporary solution, the final instructions will have an easier installation method.</p>
-</div>
 <p>Clone the code from GitHub using git:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/DylanGore-FYP/Car.git
 </code></pre></div>
 <p>Or, download and extract <a href="https://github.com/DylanGore-FYP/Car/archive/refs/heads/main.zip">this</a> zip file.</p>
+<h3 id="install-the-dependencies">Install the dependencies</h3>
+<div class="highlight"><pre><span></span><code>sudo pip3 install obd paho-mqtt toml gps eel
+</code></pre></div>
 <!-- ### Install `pipenv`
 
 This project uses `pipenv` to manage dependencies. To install it, run:
@@ -890,6 +965,30 @@ This will install all of the required dependencies in a virtual environment. To 
 <p>All configuration is done within a <code>config.toml</code> file. A sample file comes with the repo. Copy it and rename it to use it as a starting point.</p>
 <div class="highlight"><pre><span></span><code>cp config.sample.toml config.toml
 </code></pre></div>
+<h3 id="running-the-code">Running the Code</h3>
+<p>From the location you downloaded the code to, run:</p>
+<div class="highlight"><pre><span></span><code>python3 -m car
+</code></pre></div>
+<h3 id="optional-steps">Optional Steps</h3>
+<h4 id="disable-the-cursor">Disable the Cursor</h4>
+<p>If you want to hide the cursor, first, install <code>unclutter</code></p>
+<div class="highlight"><pre><span></span><code>sudo apt install unclutter
+</code></pre></div>
+<p>Add <code>unclutter</code> to the LXDE <code>autostart</code> file so it runs on login:</p>
+<div class="highlight"><pre><span></span><code>sudo nano /etc/xdg/libfm/libfm.conf
+</code></pre></div>
+<p>and add the following line to the end:</p>
+<div class="highlight"><pre><span></span><code>@unclutter -idle <span class="m">0</span>
+</code></pre></div>
+<h4 id="enable-single-click">Enable single click</h4>
+<p>As a quality of life improvement when using a touchscreen, you may want to enable single click, meaning that desktop shortcuts only require a single click/tap to open rather than a double click/tap.</p>
+<p>Edit <code>/etc/xdg/libfm/libfm.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo nano /etc/xdg/libfm/libfm.conf
+</code></pre></div>
+<p>Where it says:</p>
+<div class="highlight"><pre><span></span><code>single-click<span class="o">=</span><span class="m">0</span>
+</code></pre></div>
+<p>Replace the <code>0</code> with a <code>1</code>.</p>
                 
               
               
