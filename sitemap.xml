@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://dylangore-fyp.github.io/Documentation/</loc>
-     <lastmod>2021-05-01</lastmod>
+     <lastmod>2021-05-02</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dylangore-fyp.github.io/Documentation/setup/vehicle/</loc>
-     <lastmod>2021-05-01</lastmod>
+     <lastmod>2021-05-02</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dylangore-fyp.github.io/Documentation/setup/cloud-single-server/</loc>
-     <lastmod>2021-05-01</lastmod>
+     <lastmod>2021-05-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dylangore-fyp.github.io/Documentation/setup/cloud-multi-server/</loc>
+     <lastmod>2021-05-02</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dylangore-fyp.github.io/Documentation/setup/external-firebase-authentication/</loc>
-     <lastmod>2021-05-01</lastmod>
+     <lastmod>2021-05-02</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dylangore-fyp.github.io/Documentation/about/</loc>
-     <lastmod>2021-05-01</lastmod>
+     <lastmod>2021-05-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

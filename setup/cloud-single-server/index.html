@@ -446,6 +446,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    Configuration Files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#running-the-playbook" class="md-nav__link">
     Running the Playbook
   </a>
@@ -491,10 +498,29 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-multi-server/" class="md-nav__link">
+        Multi-Server Setup
+      </a>
     </li>
   
 
@@ -653,6 +679,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    Configuration Files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#running-the-playbook" class="md-nav__link">
     Running the Playbook
   </a>
@@ -698,6 +731,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -716,11 +756,6 @@
                 
                 
                 <h1 id="cloud-single-server-setup">Cloud - Single Server Setup</h1>
-<!-- prettier-ignore -->
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This section of the documentation is incomplete! Results may vary.</p>
-</div>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>1 Virtual Machine/Bare-metal server</li>
@@ -742,9 +777,20 @@
 <p><a class="md-button md-button--primary" href="../external-firebase-authentication/">Setup Firebase <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 18.69-7.3 4.05c-.5.26-1 .26-1.5 0L4 18.69 17.05 5.54l.35-.1c.3 0 .47.13.5.4L20 18.69M9.35 5.74 4.8 13.29 6.7 1.34c.03-.27.2-.4.5-.4.2 0 .33.06.4.25l2.15 3.95-.4.6M13.85 7 4.3 16.59l7.25-12.3c.1-.2.25-.29.45-.29s.33.09.4.29L13.85 7z"/></svg></span></a></p>
 <p>Once you have a <code>serviceAccountKey.json</code> file, place it in the Playbook <code>templates/</code> directory.</p>
 <h3 id="variable-configuration">Variable Configuration</h3>
-<p>Coming Soon!</p>
+<p>The variable names should be self-explanatory, please create <code>vars/vars.yml</code> based on the example file found in the <code>vars/</code> directory.</p>
+<h3 id="configuration-files">Configuration Files</h3>
+<p>You must also include two custom configuration files, one for Alert Manager and one for configuring MQTT login credentials. There are samples for both in the <code>templates/</code> directory. Please create both an <code>mqtt_logins</code> file and an <code>alertmanager.yml</code> file. The playbook will fail if these files are not present.</p>
 <h3 id="running-the-playbook">Running the Playbook</h3>
-<p>Coming Soon!</p>
+<p>Before running the playbook itself, you must download the required roles. This can be done by running:</p>
+<div class="highlight"><pre><span></span><code>ansible-galaxy install -r requirements.yml -p roles --force
+</code></pre></div>
+<p>To run the playbook, run one of the following commands depending on how authentication is configured. If in doubt, run the password authentication command.</p>
+<p>Run the playbook using SSH Key authentication:</p>
+<div class="highlight"><pre><span></span><code>ansible-playbook -i inventory playbook.yml
+</code></pre></div>
+<p>Run the playbook using password authentication:</p>
+<div class="highlight"><pre><span></span><code>ansible-playbook -i inventory playbook.yml --ask-pass
+</code></pre></div>
 <h2 id="manual-setup">Manual Setup</h2>
 <!-- prettier-ignore -->
 <div class="admonition info">
@@ -767,6 +813,8 @@ sudo apt upgrade
 <div class="highlight"><pre><span></span><code>sudo chmod +x /usr/local/bin/docker-compose
 </code></pre></div>
 <p>Optionally, you can enable command completion for <code>docker-compose</code> by following the guide <a href="https://docs.docker.com/compose/completion/">here</a>.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>From here you can deploy the various services as Docker containers. Please see the Ansible role linked above and/or the individual component repositories for examples.</p>
                 
               
               
@@ -804,13 +852,13 @@ sudo apt upgrade
         </a>
       
       
-        <a href="../external-firebase-authentication/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../cloud-multi-server/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Firebase Authentication
+              Multi-Server Setup
             </div>
           </div>
           <div class="md-footer__button md-icon">
