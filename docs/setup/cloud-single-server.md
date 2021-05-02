@@ -1,9 +1,5 @@
 # Cloud - Single Server Setup
 
-<!-- prettier-ignore -->
-!!! warning
-    This section of the documentation is incomplete! Results may vary.
-
 ## Requirements
 
 - 1 Virtual Machine/Bare-metal server
@@ -42,11 +38,33 @@ Once you have a `serviceAccountKey.json` file, place it in the Playbook `templat
 
 ### Variable Configuration
 
-Coming Soon!
+The variable names should be self-explanatory, please create `vars/vars.yml` based on the example file found in the `vars/` directory.
+
+### Configuration Files
+
+You must also include two custom configuration files, one for Alert Manager and one for configuring MQTT login credentials. There are samples for both in the `templates/` directory. Please create both an `mqtt_logins` file and an `alertmanager.yml` file. The playbook will fail if these files are not present.
 
 ### Running the Playbook
 
-Coming Soon!
+Before running the playbook itself, you must download the required roles. This can be done by running:
+
+```bash
+ansible-galaxy install -r requirements.yml -p roles --force
+```
+
+To run the playbook, run one of the following commands depending on how authentication is configured. If in doubt, run the password authentication command.
+
+Run the playbook using SSH Key authentication:
+
+```bash
+ansible-playbook -i inventory playbook.yml
+```
+
+Run the playbook using password authentication:
+
+```bash
+ansible-playbook -i inventory playbook.yml --ask-pass
+```
 
 ## Manual Setup
 
@@ -84,3 +102,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 Optionally, you can enable command completion for `docker-compose` by following the guide [here](https://docs.docker.com/compose/completion/).
+
+## Next Steps
+
+From here you can deploy the various services as Docker containers. Please see the Ansible role linked above and/or the individual component repositories for examples.

@@ -44,6 +44,7 @@ nav:
           - setup/vehicle.md
           - Cloud:
               - 'Single Server Setup': setup/cloud-single-server.md
+              - 'Multi-Server Setup': setup/cloud-multi-server.md
           - External:
               - 'Firebase Authentication': setup/external-firebase-authentication.md
   - About: about/index.md
